@@ -86,7 +86,7 @@ The following tools must be installed on your system:
 - **Cloud Provider CLI** (if applicable):
   - AWS: `aws-cli` with EKS access
   - GCP: `gcloud` with GKE access
-  - Azure: `az` with ASK access
+  - Azure: `az` with AKS access
 - **Cluster Credentials**: Properly configured kubeconfig
 
 ---
