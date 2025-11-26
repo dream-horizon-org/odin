@@ -691,6 +691,23 @@ discoveryService:
     ##
     automountServiceAccountToken: true
 
+## @section Discovery Controller parameters
+##
+discoveryController:
+  ## @param discoveryController.enabled Enable discovery-controller deployment
+  ##
+  enabled: false
+
+  ## @section Discovery Controller Configuration
+  ## @extra controller Controller runtime configuration
+  controller:
+    ## @param discoveryController.controller.discoveryBackend Discovery backend service address (required)
+    discoveryBackend: ""
+    ## @param discoveryController.controller.orgId Organisation ID (required)
+    orgId: ""
+    ## @param discoveryController.controller.accountName Account name (required)
+    accountName: ""
+
 ## @section Account manager parameters
 ##
 accountManager:
