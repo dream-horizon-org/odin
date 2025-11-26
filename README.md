@@ -83,6 +83,7 @@ The guide covers:
 - **[odin-discovery](https://github.com/ds-horizon/odin-discovery)** - An abstraction over discovery providers to streamline discovery management
 - **[odin-discovery-controller](https://github.com/ds-horizon/odin-discovery-controller)** - Kubernetes controller for service discovery
 - **[odin-components](https://github.com/ds-horizon/odin-components)** - Production-ready components supported by the Odin team
+- **[odin-component-interface](https://github.com/ds-horizon/odin-component-interface)** - Create custom components that can seamlessly integrate with Odin
 - **[odin-cli](https://github.com/ds-horizon/odin-cli)** - Command-line interface for Odin
 
 #### Links
