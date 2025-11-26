@@ -230,12 +230,12 @@ helm install <my-release> oci://registry-1.docker.io/odinhq/odin
 
 ### Discovery Controller Configuration
 
-| Name                                              | Description                                  | Value |
-| ------------------------------------------------- | -------------------------------------------- | ----- |
-| `controller`                                      | Controller runtime configuration             |       |
-| `discoveryController.controller.discoveryBackend` | Discovery backend service address (required) | `""`  |
-| `discoveryController.controller.orgId`            | Organisation ID (required)                   | `""`  |
-| `discoveryController.controller.accountName`      | Account name (required)                      | `""`  |
+| Name                                              | Description                       | Value                       |
+| ------------------------------------------------- | --------------------------------- | --------------------------- |
+| `controller`                                      | Controller runtime configuration  |                             |
+| `discoveryController.controller.discoveryBackend` | Discovery backend service address | `odin-discovery-service:80` |
+| `discoveryController.controller.orgId`            | Organisation ID (required)        | `""`                        |
+| `discoveryController.controller.accountName`      | Account name (required)           | `""`                        |
 
 ### Account manager parameters
 
