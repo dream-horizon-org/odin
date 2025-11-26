@@ -48,6 +48,11 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 * Use meaningful variable and method names
 * Keep methods focused and concise
 
+### Commit Signing
+
+* Ensure that your commits are `GPG` or `SSH-signed`
+* Unsigned commits may be rejected during review.
+
 ## Documentation
 
 * Keep README.md updated
