@@ -1424,7 +1424,7 @@ load_images_to_kind_cluster() {
                 # Mark all remaining images as failed and exit
                 # Trap will clean up temp files automatically
                 log_error "Cannot continue with image preloading until Docker Desktop is reconfigured"
-                return 1
+                exit 1
             fi
 
             log_command_output "kind load docker-image ${image} --name ${cluster_name}" "${load_output}"
@@ -1515,7 +1515,10 @@ preload_images_to_kind() {
     done
 
     # Load images to Kind cluster
-    load_images_to_kind_cluster "${cluster_name}" "${images_to_load[@]}"
+    if ! load_images_to_kind_cluster "${cluster_name}" "${images_to_load[@]}"; then
+        log_error "Failed to load images to Kind cluster"
+        return 1
+    fi
 }
 
 #==============================================================================
