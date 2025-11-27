@@ -24,10 +24,10 @@ setup_registry_for_context() {
     fi
 }
 
-# Preload images if this is a Kind cluster
+# Preload images if this is a Kind cluster and --preload-images flag is set
 maybe_preload_kind_images() {
     local context="$1"
-    if [[ "${context}" == kind-* ]]; then
+    if [[ "${PRELOAD_IMAGES}" == "true" ]] && [[ "${context}" == kind-* ]]; then
         local cluster_name="${context#kind-}"
         preload_images_to_kind "${cluster_name}"
     fi
@@ -177,10 +177,12 @@ setup_kind_cluster_flow() {
         return 1
     fi
 
-    # Check Docker login early (before cluster creation)
-    if ! check_docker_login; then
-        log_error "Docker Hub authentication is required for Kind cluster setup"
-        exit 1
+    # Check Docker login early (before cluster creation) if preloading images
+    if [[ "${PRELOAD_IMAGES}" == "true" ]]; then
+        if ! check_docker_login; then
+            log_error "Docker Hub authentication is required for image preloading"
+            exit 1
+        fi
     fi
 
     # Check if Kind is installed
@@ -195,13 +197,20 @@ setup_kind_cluster_flow() {
                 log_step "Setting up Docker registry for Kind"
                 setup_kind_docker_registry || log_warning "Registry setup had issues but continuing"
 
-                # Preload images
-                preload_images_to_kind "${cluster_name}"
+                # Preload images if flag is set
+                if [[ "${PRELOAD_IMAGES}" == "true" ]]; then
+                    preload_images_to_kind "${cluster_name}"
+                    return $?
+                fi
             fi
             return $?
         else
-            create_new_kind_cluster && \
-                preload_images_to_kind "${cluster_name}"
+            if create_new_kind_cluster; then
+                if [[ "${PRELOAD_IMAGES}" == "true" ]]; then
+                    preload_images_to_kind "${cluster_name}"
+                    return $?
+                fi
+            fi
             return $?
         fi
     else
@@ -212,9 +221,12 @@ setup_kind_cluster_flow() {
         # Install Kind and create cluster (this function handles step 4 and 5)
         if install_kind_cluster; then
             log_success "Kind installed and cluster created successfully"
-            # Preload images after cluster creation
-            preload_images_to_kind "odin-cluster"
-            return $?
+            # Preload images after cluster creation if flag is set
+            if [[ "${PRELOAD_IMAGES}" == "true" ]]; then
+                preload_images_to_kind "odin-cluster"
+                return $?
+            fi
+            return 0
         else
             log_error "Failed to install Kind and create cluster"
             return 1
