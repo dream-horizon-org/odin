@@ -1312,7 +1312,7 @@ verify_pulled_images() {
     log_info "Verifying pulled images..."
 
     # Use global variable to return results (log functions write to stdout, not stderr)
-    declare -g -a PULL_FAILED_IMAGES=()
+    PULL_FAILED_IMAGES=()
     local pull_success_count=0
 
     for image in "${images[@]}"; do
@@ -1495,16 +1495,21 @@ preload_images_to_kind() {
         return 1
     fi
 
-    # Create associative array for O(1) lookup of failed pulls
-    declare -A pull_failed_map
-    for failed in "${PULL_FAILED_IMAGES[@]}"; do
-        pull_failed_map["${failed}"]=1
-    done
-
     # Build list of images to load (exclude failed pulls)
     local images_to_load=()
     for image in "${images[@]}"; do
-        if [[ -z "${pull_failed_map[${image}]}" ]]; then
+        # Check if image is in failed list using simple array iteration
+        local is_failed=false
+        if [[ ${#PULL_FAILED_IMAGES[@]} -gt 0 ]]; then
+            for failed in "${PULL_FAILED_IMAGES[@]}"; do
+                if [[ "${image}" == "${failed}" ]]; then
+                    is_failed=true
+                    break
+                fi
+            done
+        fi
+
+        if [[ "${is_failed}" == "false" ]]; then
             images_to_load+=("${image}")
         fi
     done
