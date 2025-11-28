@@ -80,3 +80,5 @@ elasticsearch:
     resources:
       limits:
         memory: 1Gi
+  sysctlImage:
+    enabled: true
