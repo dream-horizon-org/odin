@@ -5,6 +5,9 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   site: 'https://dream-horizon-org.github.io/odin/',
   base: '/odin/',
+  build: {
+    format: 'directory', // Ensures clean URLs
+  },
   integrations: [
     starlight({
       title: 'Odin',
