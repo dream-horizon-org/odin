@@ -51,7 +51,6 @@ discoveryService:
 deployer:
   resources:
     limits:
-      cpu: 200m
       memory: 512Mi
   extraEnvVars:
     - name: ODIN_LOGSTORE_ENABLE_SSL
