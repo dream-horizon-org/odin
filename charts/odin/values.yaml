@@ -1314,7 +1314,7 @@ elasticsearch:
     registry: docker.io
     ## @param elasticsearch.sysctlImage.repository Elasticsearch sysctlImage repository
     ##
-    repository: bitnamilegacy/elasticsearch
+    repository: bitnamilegacy/os-shell
 
   ## Internal Elasticsearch security configuration
   ##
