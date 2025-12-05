@@ -6,8 +6,6 @@
 
 interface Props {
   logoText: string;
-  tagline: string;
-  description: string;
   primaryCTA?: { text: string; href: string; };
   secondaryCTA?: { text: string; href: string; };
   showCornerBrackets?: boolean;
@@ -15,8 +13,6 @@ interface Props {
 
 const { 
   logoText, 
-  tagline, 
-  description, 
   primaryCTA, 
   secondaryCTA,
   showCornerBrackets = true 
@@ -43,14 +39,6 @@ const {
   </div>
 
   <div class="container hero-content">
-    <!-- Badge above logo -->
-    <div class="hero-badge">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-        <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="2"/>
-      </svg>
-      <span>Production-Ready Platform</span>
-    </div>
-    
     <!-- Logo with gradient effect -->
     <h1 class="hero-logo text-mono">
       <span class="hero-logo-inner">{logoText}</span>
@@ -58,9 +46,17 @@ const {
     
     <!-- Tagline with emphasis -->
     <p class="hero-tagline">
-      <span class="tagline-highlight">Empowering developers worldwide</span> with<br />
-      production-grade, <span class="tagline-emphasis">battle-tested</span> software built for scale.
+      <span class="tagline-headline">One Interface. Every Cloud.</span>
     </p>
+    <p class="hero-description">
+      The developer-first solution that simplifies <span class="tagline-emphasis">multicloud operations</span>. Easily deploy, manage, and scale services through one unified interface, regardless of the cloud they run on.
+    </p>
+    
+    <!-- Battle Tested Badge -->
+    <div class="battle-tested-text">
+      <span class="battle-tested-icon">⭐</span>
+      <span>Battle Tested at Dream11's Scale</span>
+    </div>
     
     <!-- CTA Buttons with icons -->
     {(primaryCTA || secondaryCTA) && (
@@ -91,6 +87,16 @@ const {
     <!-- Trust indicators -->
     <div class="hero-stats">
       <div class="hero-stat">
+        <span class="stat-value">500+</span>
+        <span class="stat-label">Microservices</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-value">500+</span>
+        <span class="stat-label">Developers</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
         <span class="stat-value">10K+</span>
         <span class="stat-label">Deployments</span>
       </div>
@@ -102,7 +108,7 @@ const {
       <div class="hero-stat-divider"></div>
       <div class="hero-stat">
         <span class="stat-value">Open Source</span>
-        <span class="stat-label">MIT Licensed</span>
+        <span class="stat-label">LGPL-3.0 license</span>
       </div>
     </div>
   </div>
@@ -258,26 +264,6 @@ const {
     }
   }
   
-  /* Badge */
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1.25rem;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: 100px;
-    color: #059669;
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    animation: fade-in-up 1s ease-out 0.2s backwards;
-  }
-  
-  .hero-badge svg {
-    animation: pulse 2s ease-in-out infinite;
-  }
-  
   /* Logo */
   .hero-logo {
     font-family: var(--font-mono);
@@ -286,7 +272,7 @@ const {
     font-weight: var(--font-weight-bold);
     line-height: 1;
     letter-spacing: -0.02em;
-    animation: fade-in-up 1s ease-out 0.3s backwards;
+    animation: fade-in-up 1s ease-out 0.2s backwards;
   }
   
   .hero-logo-inner {
@@ -327,43 +313,169 @@ const {
   /* Tagline */
   .hero-tagline {
     font-family: var(--font-sans);
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    color: var(--text-primary);
-    margin-bottom: 3rem;
-    line-height: 1.6;
-    font-weight: 400;
-    max-width: 800px;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
-    animation: fade-in-up 1s ease-out 0.4s backwards;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    animation: fade-in-up 1s ease-out 0.3s backwards;
   }
   
-  .tagline-highlight {
+  .tagline-headline {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     color: var(--text-primary);
+    display: block;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .hero-description {
+    font-family: var(--font-sans);
+    font-size: clamp(1.125rem, 2.5vw, 1.35rem);
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.65;
+    font-weight: 400;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fade-in-up 1s ease-out 0.35s backwards;
   }
   
   .tagline-emphasis {
     position: relative;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--primary-red);
   }
   
-  .tagline-emphasis::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary-red), transparent);
-    animation: expand-line 1.5s ease-out 1s;
+  /* Battle Tested Text */
+  .battle-tested-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem 1.75rem;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(135deg, 
+      rgba(16, 185, 129, 0.15) 0%, 
+      rgba(5, 150, 105, 0.12) 50%,
+      rgba(16, 185, 129, 0.15) 100%);
+    background-size: 200% 200%;
+    border: 1.5px solid rgba(16, 185, 129, 0.4);
+    border-radius: 50px;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+      0 4px 16px rgba(16, 185, 129, 0.2),
+      0 0 0 1px rgba(16, 185, 129, 0.1) inset,
+      0 1px 2px rgba(0, 0, 0, 0.05);
+    animation: 
+      fade-in-up 1s ease-out 0.38s backwards,
+      pulse-glow 3s ease-in-out infinite;
+    transition: all 0.3s ease;
   }
   
-  @keyframes expand-line {
-    from { width: 0; }
-    to { width: 100%; }
+  .battle-tested-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.3), 
+      transparent);
+    animation: shimmer-slide 3s infinite;
+  }
+  
+  .battle-tested-text::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50px;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+      rgba(16, 185, 129, 0.4),
+      rgba(5, 150, 105, 0.3),
+      rgba(16, 185, 129, 0.4));
+    background-size: 200% 200%;
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    animation: border-glow 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  .battle-tested-text:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 6px 24px rgba(16, 185, 129, 0.3),
+      0 0 0 1px rgba(16, 185, 129, 0.15) inset,
+      0 2px 4px rgba(0, 0, 0, 0.1);
+    border-color: rgba(16, 185, 129, 0.6);
+  }
+  
+  .battle-tested-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    animation: star-pulse 2s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 
+        0 4px 16px rgba(16, 185, 129, 0.2),
+        0 0 0 1px rgba(16, 185, 129, 0.1) inset,
+        0 1px 2px rgba(0, 0, 0, 0.05);
+      background-position: 0% 50%;
+    }
+    50% {
+      box-shadow: 
+        0 4px 24px rgba(16, 185, 129, 0.35),
+        0 0 0 1px rgba(16, 185, 129, 0.2) inset,
+        0 1px 2px rgba(0, 0, 0, 0.05);
+      background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes shimmer-slide {
+    0% {
+      left: -100%;
+    }
+    50%, 100% {
+      left: 200%;
+    }
+  }
+  
+  @keyframes border-glow {
+    0%, 100% {
+      opacity: 0;
+      background-position: 0% 50%;
+    }
+    50% {
+      opacity: 0.6;
+      background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes star-pulse {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+    }
+    50% {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+    }
   }
   
   /* ============================================
@@ -375,7 +487,7 @@ const {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 4rem;
-    animation: fade-in-up 1s ease-out 0.5s backwards;
+    animation: fade-in-up 1s ease-out 0.4s backwards;
   }
   
   .btn-hero-primary,
@@ -472,15 +584,18 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
-    padding: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 2.5rem;
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--border-light);
     border-radius: 16px;
     box-shadow: var(--shadow-lg);
-    animation: fade-in-up 1s ease-out 0.6s backwards;
+    animation: fade-in-up 1s ease-out 0.5s backwards;
+    max-width: 1100px;
+    margin: 0 auto;
   }
   
   .hero-stat {
@@ -557,22 +672,32 @@ const {
       padding: 6rem 1.5rem 5rem;
     }
     
-    .hero-badge {
-      font-size: 0.8125rem;
-      padding: 0.4rem 1rem;
-    }
-    
     .hero-logo {
       margin-bottom: 1.5rem;
     }
     
     .hero-tagline {
-      font-size: 1.125rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .tagline-headline {
+      font-size: 1.5rem;
+    }
+    
+    .hero-description {
+      font-size: 1.0625rem;
       margin-bottom: 2rem;
     }
     
-    .hero-tagline br {
-      display: none;
+    .battle-tested-text {
+      font-size: 0.9375rem;
+      padding: 0.75rem 1.35rem;
+      margin-bottom: 2rem;
+      gap: 0.5rem;
+    }
+    
+    .battle-tested-icon {
+      font-size: 1.125rem;
     }
     
     .hero-buttons {
@@ -591,8 +716,7 @@ const {
     }
     
     .hero-stats {
-      flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
       padding: 1.5rem;
     }
     
@@ -618,6 +742,19 @@ const {
     .hero-gradient-orb {
       filter: blur(40px);
       opacity: 0.2;
+    }
+    
+    .hero-stats {
+      gap: 1rem;
+      padding: 1.25rem;
+    }
+    
+    .stat-value {
+      font-size: 1.25rem;
+    }
+    
+    .stat-label {
+      font-size: 0.8125rem;
     }
   }
   
@@ -650,8 +787,39 @@ const {
     background: var(--primary-red-light);
   }
   
-  :root[data-theme='dark'] .hero-tagline {
+  :root[data-theme='dark'] .tagline-headline {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  :root[data-theme='dark'] .hero-description {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  :root[data-theme='dark'] .battle-tested-text {
+    background: linear-gradient(135deg, 
+      rgba(16, 185, 129, 0.2) 0%, 
+      rgba(5, 150, 105, 0.18) 50%,
+      rgba(16, 185, 129, 0.2) 100%);
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 
+      0 4px 20px rgba(16, 185, 129, 0.25),
+      0 0 0 1px rgba(16, 185, 129, 0.15) inset,
+      0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  :root[data-theme='dark'] .battle-tested-text::before {
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.15), 
+      transparent);
+  }
+  
+  :root[data-theme='dark'] .battle-tested-text:hover {
+    box-shadow: 
+      0 6px 28px rgba(16, 185, 129, 0.35),
+      0 0 0 1px rgba(16, 185, 129, 0.25) inset,
+      0 2px 4px rgba(0, 0, 0, 0.3);
+    border-color: rgba(16, 185, 129, 0.7);
   }
   
   :root[data-theme='dark'] .stat-value {
@@ -663,11 +831,18 @@ const {
      ============================================ */
   @media (prefers-reduced-motion: reduce) {
     .hero-content,
-    .hero-badge,
     .hero-logo,
     .hero-tagline,
+    .hero-description,
+    .battle-tested-text,
     .hero-buttons,
     .hero-stats {
+      animation: none;
+    }
+    
+    .battle-tested-text::before,
+    .battle-tested-text::after,
+    .battle-tested-icon {
       animation: none;
     }
     

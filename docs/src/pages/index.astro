@@ -56,8 +56,6 @@ import TerminalDemo from '../components/product/TerminalDemo.astro';
   <!-- Hero Section -->
   <Hero
     logoText="{odin}"
-    tagline="Empowering developers worldwide with production-grade,"
-    description="battle-tested software built for scale."
     primaryCTA={{ text: 'Get Started', href: '/odin/docs/introduction/getting-started/' }}
     secondaryCTA={{ text: 'View on GitHub', href: 'https://github.com/ds-horizon/odin' }}
   />
@@ -65,9 +63,9 @@ import TerminalDemo from '../components/product/TerminalDemo.astro';
   <!-- Video Demo Section -->
   <Section variant="gray">
     <div class="section-header-custom">
-      <span class="section-badge section-badge-blue">DEMO</span>
-      <h2 class="section-title-custom">See Odin in Action</h2>
-      <p class="section-subtitle-custom">Watch how Odin transforms deployment complexity into simple CLI commands</p>
+      <span class="section-badge section-badge-blue">INTRODUCTION</span>
+      <h2 class="section-title-custom">What is Odin?</h2>
+      <p class="section-subtitle-custom">Learn about Odin's vision, architecture, and how it simplifies deployment workflows</p>
     </div>
     <div style="max-width: 900px; margin: 0 auto;">
       <VideoEmbed 
@@ -208,51 +206,115 @@ import TerminalDemo from '../components/product/TerminalDemo.astro';
   <!-- Community Section -->
   <Section variant="gray">
     <div class="section-header-custom">
-      <span class="section-badge section-badge-purple">COMMUNITY</span>
+      <span class="section-badge section-badge-purple">OPEN SOURCE</span>
       <h2 class="section-title-custom">Join Our Community</h2>
       <p class="section-subtitle-custom">
-        Connect with us and stay updated on our latest projects, releases, and tech insights
+        Star the repository, explore the code, and contribute to make Odin even better
       </p>
     </div>
-    <div class="community-grid">
-      <a href="https://github.com/ds-horizon/odin" class="community-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
-        <div class="community-icon">📦</div>
-        <h3>GitHub</h3>
-        <p>Explore repositories and contribute</p>
-      </a>
-      <a href="https://discord.gg/horizon" class="community-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
-        <div class="community-icon">💬</div>
-        <h3>Discord</h3>
-        <p>Chat and get real-time support</p>
-      </a>
-      <a href="https://twitter.com/horizonos" class="community-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
-        <div class="community-icon">🐦</div>
-        <h3>Twitter</h3>
-        <p>Follow for latest updates</p>
-      </a>
-      <a href="https://linkedin.com/company/horizon" class="community-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
-        <div class="community-icon">💼</div>
-        <h3>LinkedIn</h3>
-        <p>Connect with our team</p>
+    <div class="github-feature-container">
+      <a href="https://github.com/ds-horizon/odin" class="github-feature-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
+        <!-- Animated background particles -->
+        <div class="github-particles">
+          <span class="particle"></span>
+          <span class="particle"></span>
+          <span class="particle"></span>
+        </div>
+        
+        <div class="github-content">
+          <div class="github-icon-wrapper">
+            <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <div class="github-icon-glow"></div>
+          </div>
+          <div class="github-text">
+            <h3>View on GitHub</h3>
+            <p>Explore the source code, report issues, and contribute to the project</p>
+            <div class="github-stats-wrapper">
+              <div class="github-stat-box">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/>
+                </svg>
+                <div class="github-stat-content">
+                  <span class="github-stat-number" id="github-stars">
+                    <span class="loading-placeholder">--</span>
+                  </span>
+                  <span class="github-stat-label">Stars</span>
+                </div>
+              </div>
+              <div class="github-stat-box">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-.878a2.25 2.25 0 111.5 0v.878a2.25 2.25 0 01-2.25 2.25h-1.5v2.128a2.251 2.251 0 11-1.5 0V8.5h-1.5A2.25 2.25 0 013.5 6.25v-.878a2.25 2.25 0 111.5 0zM5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm6.75.75a.75.75 0 100-1.5.75.75 0 000 1.5zm-3 8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"/>
+                </svg>
+                <div class="github-stat-content">
+                  <span class="github-stat-number" id="github-forks">
+                    <span class="loading-placeholder">--</span>
+                  </span>
+                  <span class="github-stat-label">Forks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="github-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
       </a>
     </div>
   </Section>
   
-  <!-- CTA Banner -->
-  <section class="cta-banner">
-    <div class="container cta-content">
-      <h2>Ready to Transform Your Deployments?</h2>
-      <p>Join teams who have eliminated shared environment conflicts and accelerated their development cycle.</p>
-      <div class="cta-buttons">
-        <a href="/odin/docs/introduction/getting-started/" class="btn btn-primary">
-          Get Started →
-        </a>
-        <a href="https://github.com/ds-horizon/odin" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-          View on GitHub
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- GitHub Stats Script -->
+  <script>
+    // Fetch GitHub repository stats
+    async function fetchGitHubStats() {
+      try {
+        const response = await fetch('https://api.github.com/repos/ds-horizon/odin');
+        const data = await response.json();
+        
+        // Animate the numbers counting up
+        animateValue('github-stars', 0, data.stargazers_count, 1500);
+        animateValue('github-forks', 0, data.forks_count, 1500);
+      } catch (error) {
+        console.error('Error fetching GitHub stats:', error);
+        // Fallback to showing dashes if API fails
+        document.getElementById('github-stars').innerHTML = '<span class="loading-placeholder">★</span>';
+        document.getElementById('github-forks').innerHTML = '<span class="loading-placeholder">⑂</span>';
+      }
+    }
+    
+    // Animate number counting up
+    function animateValue(id, start, end, duration) {
+      const element = document.getElementById(id);
+      const startTime = performance.now();
+      
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(start + (end - start) * easeOutQuart);
+        
+        element.textContent = current.toLocaleString();
+        
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+      
+      requestAnimationFrame(update);
+    }
+    
+    // Load stats when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fetchGitHubStats);
+    } else {
+      fetchGitHubStats();
+    }
+  </script>
   
   <Footer />
 </ProductLayout>
@@ -446,141 +508,281 @@ import TerminalDemo from '../components/product/TerminalDemo.astro';
     position: relative;
   }
   
-  /* Community Grid */
-  .community-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+  /* GitHub Feature Section */
+  .github-feature-container {
     max-width: 900px;
     margin: 0 auto;
   }
   
-  .community-card {
-    background: var(--bg-white);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    text-align: center;
-    text-decoration: none;
-    transition: all var(--transition-slow);
-    color: inherit;
-    box-shadow: var(--shadow-sm);
-  }
-  
-  .community-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    border-color: rgba(139, 92, 246, 0.3);
-  }
-  
-  .community-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  .github-feature-card {
     display: block;
-  }
-  
-  .community-card h3 {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-semibold);
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-  }
-  
-  .community-card p {
-    font-family: var(--font-sans);
-    color: var(--text-secondary);
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: var(--line-height-relaxed);
-  }
-  
-  /* CTA Banner */
-  .cta-banner {
-    background: linear-gradient(135deg, #D32F2F 0%, #C62828 100%);
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+    border-radius: 20px;
+    padding: 3.5rem;
+    text-decoration: none;
     color: white;
-    text-align: center;
-    padding: 5rem 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      0 10px 30px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
     position: relative;
     overflow: hidden;
   }
   
-  .cta-banner::before {
+  .github-feature-card::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 40%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(88, 166, 255, 0.15) 0%, 
+      rgba(138, 93, 255, 0.1) 50%,
+      transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
   
-  .cta-content {
-    position: relative;
-    z-index: 2;
+  .github-feature-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 
+      0 8px 12px rgba(0, 0, 0, 0.15),
+      0 20px 50px rgba(88, 166, 255, 0.3),
+      0 0 0 1px rgba(88, 166, 255, 0.4);
   }
   
-  .cta-content h2 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: 1rem;
-    color: white;
-    line-height: var(--line-height-tight);
+  .github-feature-card:hover::before {
+    opacity: 1;
   }
   
-  .cta-content p {
-    font-family: var(--font-sans);
-    font-size: 1.25rem;
-    opacity: 0.95;
-    margin-bottom: 2rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: var(--line-height-relaxed);
+  /* Animated particles */
+  .github-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
   }
   
-  .cta-buttons {
+  .particle {
+    position: absolute;
+    background: rgba(88, 166, 255, 0.6);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out;
+  }
+  
+  .particle:nth-child(1) {
+    width: 4px;
+    height: 4px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .particle:nth-child(2) {
+    width: 6px;
+    height: 6px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 2s;
+  }
+  
+  .particle:nth-child(3) {
+    width: 3px;
+    height: 3px;
+    top: 80%;
+    left: 30%;
+    animation-delay: 4s;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+      opacity: 1;
+    }
+  }
+  
+  .github-content {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
     position: relative;
-    z-index: 2;
+    z-index: 1;
   }
   
-  .cta-banner .btn-primary {
-    background: white;
-    color: var(--primary-red);
-    font-weight: 600;
-    font-family: var(--font-sans);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  .github-icon-wrapper {
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.15) 0%, rgba(138, 93, 255, 0.1) 100%);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
-  .cta-banner .btn-primary:hover {
-    background: var(--bg-page);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  .github-icon-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.4) 0%, transparent 70%);
+    border-radius: 18px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
   
-  .cta-banner .btn-secondary {
-    background: transparent;
+  .github-feature-card:hover .github-icon-wrapper {
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.3) 0%, rgba(138, 93, 255, 0.2) 100%);
+    transform: scale(1.08) rotate(5deg);
+    box-shadow: 0 8px 24px rgba(88, 166, 255, 0.3);
+  }
+  
+  .github-feature-card:hover .github-icon-glow {
+    opacity: 1;
+  }
+  
+  .github-icon {
+    width: 52px;
+    height: 52px;
     color: white;
-    border: 2px solid white;
-    font-family: var(--font-sans);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease;
   }
   
-  .cta-banner .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
+  .github-feature-card:hover .github-icon {
+    transform: scale(1.1);
+  }
+  
+  .github-text {
+    flex: 1;
+  }
+  
+  .github-text h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: white;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .github-text p {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+  }
+  
+  .github-stats-wrapper {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  
+  .github-stat-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .github-stat-box:hover {
+    background: rgba(88, 166, 255, 0.15);
+    border-color: rgba(88, 166, 255, 0.3);
     transform: translateY(-2px);
+  }
+  
+  .github-stat-box svg {
+    color: rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
+  }
+  
+  .github-stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  
+  .github-stat-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  
+  .github-stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  
+  .loading-placeholder {
+    opacity: 0.5;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+  
+  .github-arrow {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .github-feature-card:hover .github-arrow {
+    background: rgba(88, 166, 255, 0.25);
+    border-color: rgba(88, 166, 255, 0.4);
+    transform: translateX(8px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+  }
+  
+  .github-arrow svg {
+    color: white;
   }
   
   /* Responsive */
   @media (max-width: 768px) {
     .features-grid,
-    .stats-grid,
-    .community-grid {
+    .stats-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
@@ -594,18 +796,49 @@ import TerminalDemo from '../components/product/TerminalDemo.astro';
       padding-right: 0;
     }
     
-    .cta-banner {
-      padding: 4rem 1rem;
+    .github-feature-card {
+      padding: 2.5rem 1.75rem;
     }
     
-    .cta-buttons {
+    .github-content {
       flex-direction: column;
-      align-items: center;
+      text-align: center;
+      gap: 1.75rem;
     }
     
-    .cta-buttons .btn {
-      width: 100%;
-      max-width: 300px;
+    .github-icon-wrapper {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .github-icon {
+      width: 46px;
+      height: 46px;
+    }
+    
+    .github-text h3 {
+      font-size: 1.65rem;
+    }
+    
+    .github-text p {
+      font-size: 1rem;
+    }
+    
+    .github-stats-wrapper {
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .github-stat-box {
+      padding: 0.65rem 1rem;
+    }
+    
+    .github-stat-number {
+      font-size: 1.35rem;
+    }
+    
+    .github-arrow {
+      display: none;
     }
   }
 </style>
