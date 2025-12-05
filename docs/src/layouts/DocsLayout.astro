@@ -12,6 +12,7 @@ import TOC from '../components/docs/TOC.astro';
 import Breadcrumbs from '../components/docs/Breadcrumbs.astro';
 import DocsPagination from '../components/docs/DocsPagination.astro';
 import ThemeScript from '../components/ThemeScript.astro';
+import Analytics from '../components/Analytics.astro';
 import '../styles/custom.css';
 import '../styles/docs.css';
 
@@ -32,6 +33,9 @@ const defaultOgImage = '/odin/odin-logo.png';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Analytics 4 -->
+    <Analytics />
 
     <ThemeScript />
 

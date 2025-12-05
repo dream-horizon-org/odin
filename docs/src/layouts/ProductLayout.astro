@@ -8,6 +8,7 @@
 // Import CSS styles
 import '../styles/product.css';
 import ThemeScript from '../components/ThemeScript.astro';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
   title: string;
@@ -25,6 +26,9 @@ const defaultOgImage = '/odin/odin-logo.png';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Google Analytics 4 -->
+    <Analytics />
     
     <ThemeScript />
     

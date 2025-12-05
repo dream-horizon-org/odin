@@ -1,0 +1,28 @@
+---
+/**
+ * Analytics Component - Google Analytics 4 Integration
+ * 
+ * This component adds GA4 tracking to all pages.
+ * Place this in the <head> section of layouts.
+ * 
+ * GA4 Measurement ID: G-SJ0LD5F754
+ */
+
+// Only load analytics in production to avoid skewing data during development
+const isProduction = import.meta.env.PROD;
+const GA_MEASUREMENT_ID = 'G-SJ0LD5F754';
+---
+
+{isProduction && (
+  <>
+    <!-- Google Analytics 4 -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    </script>
+  </>
+)}
+
