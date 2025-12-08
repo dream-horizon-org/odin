@@ -10,7 +10,7 @@ mysql:
   mysql:
     size: 1
     configuration: |
-      max_connections=50
+      max_connections=200
       innodb_buffer_pool_size=256M
     resources:
       requests:
@@ -33,6 +33,7 @@ accountManager:
   resources:
     limits:
       memory: 512Mi
+      cpu: 500m
   extraEnvVars:
     - name: JVM_OPTS
       value: "-Xms128m -Xmx128m -Xmn64m"
@@ -41,6 +42,7 @@ discoveryService:
   resources:
     limits:
       memory: 512Mi
+      cpu: 500m
   extraEnvVars:
     - name: JVM_OPTS
       value: "-Xms128m -Xmx128m -Xmn64m"
@@ -50,6 +52,7 @@ deployer:
   resources:
     limits:
       memory: 512Mi
+      cpu: 500m
   extraEnvVars:
     - name: ODIN_LOGSTORE_ENABLE_SSL
       value: "false"
@@ -68,7 +71,6 @@ orchestrator:
       value: "false"
     - name: ODIN_RUNNER_HOST_VOLUME_MOUNTS
       value: '[{"name":"host-file-system","hostPath":"/local","mountPath":"/host"},{"name":"host-tmp-dir","hostPath":"/mnt/tmp","mountPath":"/tmp"},{"name":"docker-socket-volume","hostPath":"/var/run/docker.sock","mountPath":"/var/run/docker.sock", "type":"Socket"}]'
-
 
 # Elasticsearch configuration
 elasticsearch:
