@@ -327,7 +327,7 @@ install_odin() {
     # Add Linux-specific overrides
     if [[ "$(detect_os_type)" == "linux" ]]; then
         log_info "Detected Linux system. Enabling elasticsearch.sysctlImage..."
-        helm_cmd="${helm_cmd} --set elasticsearch.sysctlImage.enabled=true"
+        helm_cmd="${helm_cmd} --set elasticsearch.sysctlImage.enabled=true --set elasticsearch.sysctlImage.repository=bitnamilegacy/os-shell"
     fi
 
     log_debug "Executing: ${helm_cmd}"
