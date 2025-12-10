@@ -222,7 +222,7 @@ setup_local_dev_data() {
     log_info "Updating kubeconfig in kind_service_account.json..."
 
     if ! jq --arg kc "${kubeconfig_base64}" \
-          '.kubeconfig = $kc' \
+          '.clusters[0].kubeconfig = $kc' \
           "${kind_sa_file}" > "${kind_sa_file}.tmp"; then
         log_error "Failed to update kubeconfig in ${kind_sa_file}"
         return 1
