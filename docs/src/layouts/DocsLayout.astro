@@ -13,6 +13,7 @@ import Breadcrumbs from '../components/docs/Breadcrumbs.astro';
 import DocsPagination from '../components/docs/DocsPagination.astro';
 import ThemeScript from '../components/ThemeScript.astro';
 import Analytics from '../components/Analytics.astro';
+import CodeCopyScript from '../components/docs/CodeCopyScript.astro';
 import '../styles/custom.css';
 import '../styles/docs.css';
 
@@ -38,6 +39,7 @@ const defaultOgImage = '/odin/odin-og-image.png';
     <Analytics />
 
     <ThemeScript />
+    <CodeCopyScript />
 
     <!-- Primary Meta Tags -->
     <title>{title} | Odin Documentation</title>
@@ -167,4 +169,3 @@ const defaultOgImage = '/odin/odin-og-image.png';
     </script>
   </body>
 </html>
-

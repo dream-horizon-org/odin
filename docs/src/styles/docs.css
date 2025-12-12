@@ -196,7 +196,7 @@
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius-md);
   overflow-x: auto;
-  margin: 1.5rem 0;
+  margin: 0; /* Reset margin as wrapper handles it */
   font-family: var(--font-mono);
   font-size: 0.875rem;
   line-height: 1.7;
@@ -365,6 +365,54 @@
 }
 
 /* ============================================
+   CODE BLOCK & COPY BUTTON
+   ============================================ */
+
+.code-wrapper {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.4rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: #a0a0a0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.copy-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.copy-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.copy-button.copied {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+/* Ensure code blocks have enough padding on the right for the button */
+.docs-content pre {
+  padding-right: 3rem;
+}
+
+/* ============================================
    RESPONSIVE LAYOUT
    ============================================ */
 
@@ -463,4 +511,3 @@
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.15);
 }
-
