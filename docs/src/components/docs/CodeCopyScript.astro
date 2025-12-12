@@ -1,0 +1,77 @@
+<script>
+  // Function to add copy buttons to all pre blocks
+  function addCopyButtons() {
+    // Select all pre tags in the docs content area
+    const preBlocks = document.querySelectorAll('.docs-content pre');
+
+    preBlocks.forEach((pre) => {
+      // Check if already processed to avoid duplicates
+      if (pre.parentNode?.classList.contains('code-wrapper')) return;
+
+      // Create wrapper
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-wrapper';
+
+      // Insert wrapper before pre, then move pre into wrapper
+      pre.parentNode?.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      // Create copy button
+      const button = document.createElement('button');
+      button.className = 'copy-button';
+      button.ariaLabel = 'Copy code to clipboard';
+      
+      // Icon SVG (copy icon)
+      button.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      `;
+
+      // Add click handler
+      button.addEventListener('click', async () => {
+        const code = pre.querySelector('code')?.innerText || pre.innerText;
+        
+        try {
+          await navigator.clipboard.writeText(code);
+          
+          // success state
+          button.classList.add('copied');
+          button.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="sr-only">Copied!</span>
+          `;
+          
+          // Reset after 2 seconds
+          setTimeout(() => {
+            button.classList.remove('copied');
+            button.innerHTML = `
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            `;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy code:', err);
+        }
+      });
+
+      wrapper.appendChild(button);
+    });
+  }
+
+  // Run on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addCopyButtons);
+  } else {
+    addCopyButtons();
+  }
+
+  // Re-run on view transitions if enabled (Astro default)
+  document.addEventListener('astro:page-load', addCopyButtons);
+</script>
+
